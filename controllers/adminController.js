@@ -24,3 +24,21 @@ export const adminController=async(req,res)=>{
         })
     }
 }
+
+export const getPostController=async(req,res)=>{
+    try {
+        const getAllPost = await adminModel.find({})
+        return res.status(200).json({
+            success:true,
+            message:"Got all post successfully",
+            getAllPost
+
+        })
+    } catch (error) {
+        console.log(error)
+        return res.status(400).json({
+            success:false,
+            message:'Error in get Post Api'
+        })
+    }
+}
